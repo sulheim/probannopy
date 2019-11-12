@@ -1,2 +1,4 @@
 *.sw?
+*.cfg
 bin
+probanno/data/

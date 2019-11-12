@@ -139,6 +139,12 @@ class ProbAnnotationWorker:
                     '--evalue', self.config['search_program_evalue'],
                     '--threads', self.config['search_program_threads'], '--more-sensitive',
                     '-k', '0', '-o', blastResultFile, '--outfmt', '6']
+        elif self.config['search_program'] == 'vsearch':
+            args = [ self.config['search_program_path'], '-ublast', queryFile,
+                     '-db', self.dataParser.SearchFiles['protein_udb_file'],
+                     '-evalue', self.config['search_program_evalue'],
+                     '-threads', self.config['search_program_threads'],
+                     '-blast6out', blastResultFile ]
         else:
             args = [ self.config['search_program_path'], '-query', queryFile,
                      '-db', self.dataParser.DataFiles['protein_fasta_file'],
