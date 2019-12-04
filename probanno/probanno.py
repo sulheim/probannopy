@@ -18,12 +18,12 @@ Example: Downloading a genome, running probabilistic annotation, and exporting r
 import json
 import re
 import requests
-import cobra
+# import cobra
 
 from lib.ProbAnnotationWorker import ProbAnnotationWorker
 
 # Constants
-UNIPROT_BASE_URL = 'http://www.uniprot.org/uniprot/?format=fasta&query=organism:'
+UNIPROT_BASE_URL = 'https://www.uniprot.org/uniprot/?format=fasta&query=organism:'
 
 
 def get_fasta_by_id(proteome_id, output_file):
@@ -331,3 +331,6 @@ class ReactionProbabilities(object):
 
 class FastaNotFoundError(Exception):
     pass
+
+if __name__ == '__main__':
+    get_fasta_by_id("83333", "E_coli_MK12_uniprot.fasta")
